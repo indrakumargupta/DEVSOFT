@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>DevLaunch - Learn & Build</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1e293b;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #334155;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .nav-btn {
+            background: #4f46e5;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .nav-btn:hover {
+            background: #3730a3;
+        }
+
+        .hero {
+            min-height: 90vh;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #eef2ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content span {
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin: 15px 0 20px;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            border: 2px solid #4f46e5;
+            color: #4f46e5;
+        }
+
+        .secondary-btn:hover {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .hero-card {
+            width: 420px;
+            padding: 35px;
+            border-radius: 20px;
+            background: #0f172a;
+            color: white;
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.25);
+        }
+
+        .hero-card h3 {
+            color: #818cf8;
+            margin-bottom: 20px;
+        }
+
+        .code {
+            color: #cbd5e1;
+            font-family: monospace;
+            line-height: 2;
+        }
+
+        .green {
+            color: #4ade80;
+        }
+
+        .yellow {
+            color: #facc15;
+        }
+
+        .blue {
+            color: #60a5fa;
+        }
+
+        .features {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 38px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 25px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+        }
+
+        .cta {
+            margin: 50px 8%;
+            padding: 70px 30px;
+            text-align: center;
+            border-radius: 20px;
+            background: #4f46e5;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            color: #e0e7ff;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #4f46e5;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .cta-btn:hover {
+            background: #e0e7ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0f172a;
+            color: #94a3b8;
+        }
+
+        footer span {
+            color: #818cf8;
+        }
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 420px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .features {
+                padding: 70px 5%;
+            }
+
+            .cta {
+                margin: 30px 5%;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">DevLaunch</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="nav-btn">Get Started</a></li>
+        </ul>
+    </nav>
+   <section class="hero" id="home">
+        <div class="hero-content">
+            <span>🚀 BUILD YOUR FUTURE</span>
+            <h1>
+                Learn. Build.
+                <br>
+                Become a Developer.
+            </h1>
+            <p>
+                Master modern web development with practical projects,
+                real-world skills and a community that helps you grow.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn primary-btn">
+                    Get Started
+                </a>
+                <a href="#features" class="btn secondary-btn">
+                    Explore Features
+                </a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <h3>developer.js</h3>
+            <div class="code">
+                <div><span class="blue">const</span> developer = {</div>
+                <div>
+                    &nbsp;&nbsp;name:
+                    <span class="green">"Your Name"</span>,
+                </div>
+                <div>
+                    &nbsp;&nbsp;skills:
+                    <span class="green">["HTML", "CSS", "JS"]</span>,
+                </div>
+                <div>
+                    &nbsp;&nbsp;passion:
+                    <span class="green">"Coding"</span>
+                </div>
+                <div>};</div>
+                <br>
+                <div>
+                    <span class="yellow">developer</span>.build();
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h2 class="section-title">
+            Everything You Need
+        </h2>
+        <p class="section-subtitle">
+            Build your skills with a practical learning experience.
+        </p>
+        <div class="feature-container">
+            <div class="feature-card">
+                <div class="icon">💻</div>
+                <h3>Real Projects</h3>
+                <p>
+                    Build practical projects that you can
+                    showcase in your portfolio.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Fast Learning</h3>
+                <p>
+                    Learn modern technologies through
+                    simple and focused lessons.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎯</div>
+                <h3>Career Focused</h3>
+                <p>
+                    Develop skills that help you prepare
+                    for internships and developer jobs.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="cta" id="contact">
+        <h2>Ready to Start?</h2>
+        <p>
+            Start building your developer journey today.
+        </p>
+        <a href="#" class="cta-btn">
+            Join Now →
+        </a>
+    </section>
+    <footer id="about">
+        <p>
+            © 2026 <span>DevLaunch</span>.
+            Made with ❤️ and HTML5 + CSS3.
+        </p>
+    </footer>
+</body>
+</html>
